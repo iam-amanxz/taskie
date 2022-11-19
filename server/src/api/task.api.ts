@@ -3,7 +3,7 @@ import db from '../db'
 import {
   ResourceNotFoundException,
   UnauthorizedException,
-} from '../exceptions-and-responses'
+} from '../exceptions_and_responses'
 import { CreateTaskDto, UpdateTaskDto } from '../features/task'
 
 export const taskApi = {

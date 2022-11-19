@@ -3,7 +3,7 @@ import { taskApi } from '../../api/task.api'
 import { CreateTaskDto } from '../task'
 import { SignupDto } from '../auth'
 import { generateHash, generateSalt } from '../../utils'
-import { EmailExistsException } from '../../exceptions-and-responses'
+import { EmailExistsException } from '../../exceptions_and_responses'
 
 export const adminService = {
   createUser: async (dto: SignupDto) => {

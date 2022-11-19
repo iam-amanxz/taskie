@@ -3,7 +3,7 @@ import request from 'supertest'
 import {
   InvalidCredentialsException,
   ValidationException,
-} from '../../../exceptions-and-responses'
+} from '../../../exceptions_and_responses'
 
 const URL_BASE = '/api/v1/auth'
 const URL_SIGN_UP = URL_BASE + '/sign-up'

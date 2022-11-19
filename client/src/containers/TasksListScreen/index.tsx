@@ -12,7 +12,7 @@ import { useFetchUserProfileQuery } from '../../api/auth'
 import { useCreateTaskMutation, useFetchAllTasksQuery } from '../../api/task'
 import { PATH_LOGIN } from '../../constants/routes'
 import { useAppDispatch, useAppSelector } from '../../store'
-import { authStateResetAction, logoutAction } from '../../store/session/actions'
+import { logoutAction } from '../../store/session/actions'
 import { ErrorResponseResource } from '../../types'
 import { useLocalStorage, useShowToast } from '../../hooks'
 import {

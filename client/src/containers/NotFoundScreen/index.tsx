@@ -1,6 +1,6 @@
 import { Flex, Container, Heading, Button } from '@chakra-ui/react'
 import { useNavigate } from 'react-router'
-import { PATH_AUTH, PATH_LOGIN } from '../../constants/routes'
+import { PATH_AUTH } from '../../constants/routes'
 
 export const NotFoundSrceen = () => {
   const navigate = useNavigate()

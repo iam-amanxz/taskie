@@ -7,7 +7,6 @@ import { AuthForm } from '../../components'
 import { useShowToast } from '../../hooks'
 import { useAppDispatch } from '../../store'
 import { setSessionAction } from '../../store/session/actions'
-import { taskApi } from '../../api'
 
 export const LoginScreen = () => {
   const navigate = useNavigate()

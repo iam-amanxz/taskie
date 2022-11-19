@@ -5,7 +5,7 @@ import {
   ApiResponse,
   UnauthorizedException,
   ValidationException,
-} from '../../exceptions-and-responses'
+} from '../../exceptions_and_responses'
 import { mapExpressErrorsToLocal, monthsMap } from '../../utils'
 import { CronJob } from 'cron'
 import { sendDueExpirationEmail } from '../email'

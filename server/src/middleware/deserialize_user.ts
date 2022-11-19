@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { ResourceNotFoundException } from '../exceptions-and-responses'
+import { ResourceNotFoundException } from '../exceptions_and_responses'
 import { userService } from '../features/user'
 
 /**

@@ -3,7 +3,7 @@ import { userApi as api } from '../../api/user.api'
 import {
   EmailExistsException,
   InvalidCredentialsException,
-} from '../../exceptions-and-responses'
+} from '../../exceptions_and_responses'
 import { generateHash, generateSalt } from '../../utils'
 import { SignupDto, SigninDto } from './auth.dto'
 

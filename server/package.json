@@ -11,7 +11,7 @@
     "schema": "./src/prisma/schema.prisma"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "cp .env dist && tsc",
     "serve": "node dist/index.js",
     "dev": "dotenv -e .env.development nodemon -e ts -w . -x ts-node ./src/index.ts  --print-label",
     "test:run": "dotenv -e .env.test nodemon -e ts -w . -x ts-node ./src/index.ts  --print-label",

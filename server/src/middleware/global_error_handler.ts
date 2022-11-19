@@ -6,7 +6,7 @@ import {
   InvalidCredentialsException,
   UnauthenticatedException,
   ValidationException,
-} from '../exceptions-and-responses'
+} from '../exceptions_and_responses'
 
 /**
  * Handles all unhandled errors. Catches errors passed by next(error)

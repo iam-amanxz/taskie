@@ -5,7 +5,7 @@ import {
   ResourceNotFoundException,
   UnauthenticatedException,
   ValidationException,
-} from '../../../exceptions-and-responses'
+} from '../../../exceptions_and_responses'
 
 const URL_BASE = '/api/v1/tasks'
 const URL_SIGN_UP = '/api/v1/auth/sign-up'

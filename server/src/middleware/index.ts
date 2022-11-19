@@ -1,4 +1,4 @@
-export { deserializeUser } from "./deserialize-user";
-export { globalErrorHandler } from "./global-error-handler";
-export { isAuthenticated } from "./is-authenticated";
-export { isAdmin } from "./is-admin";
+export { deserializeUser } from "./deserialize_user";
+export { globalErrorHandler } from "./global_error_handler";
+export { isAuthenticated } from "./is_authenticated";
+export { isAdmin } from "./is_admin";

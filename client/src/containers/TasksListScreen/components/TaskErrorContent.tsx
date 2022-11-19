@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, GridItem, Text } from '@chakra-ui/react'
+import { Button, Card, CardBody, Text } from '@chakra-ui/react'
 
 interface TaskErrorContentProps {
   onRetry: () => void

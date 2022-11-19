@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { UnauthenticatedException } from '../exceptions-and-responses'
+import { UnauthenticatedException } from '../exceptions_and_responses'
 
 interface JwtPayload {
   userId: number

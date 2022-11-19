@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 import {
   NotAdminException,
   NotTestEnvironmentException,
-} from '../exceptions-and-responses'
+} from '../exceptions_and_responses'
 
 /**
  * Only for testing (works only in test environment)

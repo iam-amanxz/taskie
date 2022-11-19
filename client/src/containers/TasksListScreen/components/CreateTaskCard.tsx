@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader, GridItem, Heading } from '@chakra-ui/react'
+import { Card, CardBody, CardHeader, Heading } from '@chakra-ui/react'
 import { CreateTaskForm } from './CreateTaskForm'
 
 interface CreateTaskCardProps {

@@ -4,7 +4,7 @@ import { validationResult } from 'express-validator'
 import {
   ApiResponse,
   ValidationException,
-} from '../../exceptions-and-responses'
+} from '../../exceptions_and_responses'
 import { issueAuthToken, mapExpressErrorsToLocal } from '../../utils'
 import { authService as service } from './auth.service'
 

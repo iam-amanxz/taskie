@@ -1,5 +1,5 @@
-import { generateHash } from './getHash'
-import { generateSalt } from './genSalt'
+import { generateHash } from './get_hash'
+import { generateSalt } from './gen_salt'
 
 describe('getHash', () => {
   it('should return hashed string', () => {

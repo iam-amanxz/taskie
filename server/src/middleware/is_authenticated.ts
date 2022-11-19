@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { userApi } from '../api'
-import { UnauthenticatedException } from '../exceptions-and-responses'
+import { UnauthenticatedException } from '../exceptions_and_responses'
 import { verifyAuthToken } from '../utils'
 
 /**
