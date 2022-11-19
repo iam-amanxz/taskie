@@ -38,7 +38,9 @@ describe('GET /tasks', () => {
     db.$disconnect()
   })
   beforeEach(async () => {
-    await request(app).delete(ADMIN_USER).send({ secretKey: 'ADMINSECRETKEY' })
+    await request(app)
+      .delete(ADMIN_USER)
+      .send({ secretKey: process.env.ADMINSECRETKEY })
   })
 
   it('returns 200 on success', async () => {
@@ -64,7 +66,9 @@ describe('GET /tasks', () => {
 
 describe('POST /tasks', () => {
   beforeEach(async () => {
-    await request(app).delete(ADMIN_USER).send({ secretKey: 'ADMINSECRETKEY' })
+    await request(app)
+      .delete(ADMIN_USER)
+      .send({ secretKey: process.env.ADMINSECRETKEY })
   })
 
   it('returns 401 when not authenticated', async () => {
@@ -105,7 +109,9 @@ describe('POST /tasks', () => {
 
 describe('DELETE /tasks/:id', () => {
   beforeEach(async () => {
-    await request(app).delete(ADMIN_USER).send({ secretKey: 'ADMINSECRETKEY' })
+    await request(app)
+      .delete(ADMIN_USER)
+      .send({ secretKey: process.env.ADMINSECRETKEY })
   })
 
   it('returns 200 on success', async () => {
@@ -136,7 +142,9 @@ describe('DELETE /tasks/:id', () => {
 
 describe('PUT /tasks/:id', () => {
   beforeEach(async () => {
-    await request(app).delete(ADMIN_USER).send({ secretKey: 'ADMINSECRETKEY' })
+    await request(app)
+      .delete(ADMIN_USER)
+      .send({ secretKey: process.env.ADMINSECRETKEY })
   })
 
   it('returns 200 on success', async () => {
@@ -149,7 +157,7 @@ describe('PUT /tasks/:id', () => {
       .send({ ...taskResponse.body.payload, completed: true })
       .then((res) => {
         expect(res.statusCode).toEqual(200)
-        expect(res.body.payload).toHaveProperty("completed", true)
+        expect(res.body.payload).toHaveProperty('completed', true)
       })
   })
 })

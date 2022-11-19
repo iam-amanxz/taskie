@@ -15,53 +15,59 @@ const user = {
   name: 'Test User',
   email: 'testuser3@taskie.com',
   password: '12345',
-}                                                                                                                                                                                                                                                                   
+}
 
-describe('POST /sign-up', () => {
-  beforeEach(async () => {
-    await request(app).delete(ADMIN_USER).send({ secretKey: 'ADMINSECRETKEY' })
+describe('auth', () => {
+  describe('POST /sign-up', () => {
+    beforeEach(async () => {
+      await request(app)
+        .delete(ADMIN_USER)
+        .send({ secretKey: process.env.ADMINSECRETKEY })
+    })
+
+    it('returns 400 when validation fails', async () => {
+      const res = await request(app).post(URL_SIGN_UP).send({})
+      expect(res.statusCode).toEqual(400)
+      expect(res.body.errorMessage).toEqual(ValidationException.message)
+    })
+
+    it('returns 201 when success', async () => {
+      const res = await request(app).post(URL_SIGN_UP).send(user)
+      expect(res.statusCode).toEqual(201)
+    })
+
+    it('returns 409 if email already exists', async () => {
+      await request(app).post(URL_SIGN_UP).send(user)
+      const res = await request(app).post(URL_SIGN_UP).send(user)
+      expect(res.statusCode).toEqual(409)
+    })
   })
 
-  it('returns 400 when validation fails', async () => {
-    const res = await request(app).post(URL_SIGN_UP).send({})
-    expect(res.statusCode).toEqual(400)
-    expect(res.body.errorMessage).toEqual(ValidationException.message)
-  })
+  describe('POST /sign-in', () => {
+    beforeEach(async () => {
+      await request(app)
+        .delete(ADMIN_USER)
+        .send({ secretKey: process.env.ADMINSECRETKEY })
+    })
 
-  it('returns 201 when success', async () => {
-    const res = await request(app).post(URL_SIGN_UP).send(user)
-    expect(res.statusCode).toEqual(201)
-  })
+    it('returns 400 when validation fails', async () => {
+      const res = await request(app).post(URL_SIGN_IN).send({})
+      expect(res.statusCode).toEqual(400)
+      expect(res.body.errorMessage).toEqual(ValidationException.message)
+    })
 
-  it('returns 409 if email already exists', async () => {
-    await request(app).post(URL_SIGN_UP).send(user)
-    const res = await request(app).post(URL_SIGN_UP).send(user)
-    expect(res.statusCode).toEqual(409)
-  })
-})
+    it('returns 200 when success', async () => {
+      await request(app).post(URL_SIGN_UP).send(user)
+      const res = await request(app).post(URL_SIGN_IN).send(user)
+      expect(res.statusCode).toEqual(200)
+    })
 
-describe('POST /sign-in', () => {
-  beforeEach(async () => {
-    await request(app).delete(ADMIN_USER).send({ secretKey: 'ADMINSECRETKEY' })
-  })
-
-  it('returns 400 when validation fails', async () => {
-    const res = await request(app).post(URL_SIGN_IN).send({})
-    expect(res.statusCode).toEqual(400)
-    expect(res.body.errorMessage).toEqual(ValidationException.message)
-  })
-
-  it('returns 200 when success', async () => {
-    await request(app).post(URL_SIGN_UP).send(user)
-    const res = await request(app).post(URL_SIGN_IN).send(user)
-    expect(res.statusCode).toEqual(200)
-  })
-
-  it('returns 409 when auth fails', async () => {
-    await request(app).post(URL_SIGN_UP).send(user)
-    const res = await request(app)
-      .post(URL_SIGN_IN)
-      .send({ ...user, password: 'bbbbb' })
-    expect(res.body.errorMessage).toEqual(InvalidCredentialsException.message)
+    it('returns 409 when auth fails', async () => {
+      await request(app).post(URL_SIGN_UP).send(user)
+      const res = await request(app)
+        .post(URL_SIGN_IN)
+        .send({ ...user, password: 'bbbbb' })
+      expect(res.body.errorMessage).toEqual(InvalidCredentialsException.message)
+    })
   })
 })

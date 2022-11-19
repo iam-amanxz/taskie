@@ -27,9 +27,8 @@ yarn install
 - `EMAIL_ADDRESS` - gmail address to use as the smtp server for sending task overdue emails
 - `EMAIL_PASSWORD` - password for the gmail account
 - `EMAIL_ADDITIONAL_HOURS` - how many hours after the task expiration should the email send (Eg: 3)
-- `CORS_DOMAINS` - frontend domains to whitelist (eg: http://localhost:3001, http://127.0.0.1:3001)
+- `CORS_DOMAINS` - frontend domains to whitelist (eg: http://localhost:3000, http://127.0.0.1:3000)
 - `JWT_SECRET` - secret to generate JWT tokens (eg: MYSUPERSECRET)
-- `ADMIN_SECRET` - secret to access admin routes. This is only for cypress testing on the client and this same secret string must be registered on the `client/cypress.config.ts` as well (eg: MYSUPERADMINSECRET)
 
   
 
