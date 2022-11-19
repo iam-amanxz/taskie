@@ -1,0 +1,59 @@
+{
+  "name": "taskie-server",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "iam.amanxz@gmail.com",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0 <17.0.0"
+  },
+  "prisma": {
+    "schema": "./src/prisma/schema.prisma"
+  },
+  "scripts": {
+    "build": "tsc",
+    "serve": "node dist/index.js",
+    "dev": "dotenv -e .env.development nodemon -e ts -w . -x ts-node ./src/index.ts  --print-label",
+    "test:run": "dotenv -e .env.test nodemon -e ts -w . -x ts-node ./src/index.ts  --print-label",
+    "test": "dotenv -e .env.test -- jest --all --forceExit --runInBand --verbose",
+    "test:watch": "dotenv -e .env.test -- jest --watchAll --runInBand --silent=false --verbose",
+    "migrate:dev": "dotenv -e .env.development -- npx prisma migrate dev",
+    "migrate:test": "dotenv -e .env.test -- npx prisma migrate dev",
+    "studio:dev": "dotenv -e .env.development -- npx prisma studio",
+    "studio:test": "dotenv -e .env.test -- npx prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cron": "^2.1.0",
+    "dotenv": "^16.0.3",
+    "dotenv-cli": "^6.0.0",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/cron": "^2.0.0",
+    "@types/express": "^4.17.14",
+    "@types/jest": "^29.2.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.11.0",
+    "@types/nodemailer": "^6.4.6",
+    "@types/supertest": "^2.0.12",
+    "jest": "^29.2.1",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.5.0",
+    "supertest": "^6.3.0",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
