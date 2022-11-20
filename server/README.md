@@ -30,7 +30,8 @@ yarn install
 - `CORS_DOMAINS` - frontend domains to whitelist (eg: http://localhost:3000, http://127.0.0.1:3000)
 - `JWT_SECRET` - secret to generate JWT tokens (eg: MYSUPERSECRET)
 
-  
+### About email sending ⚠️
+> In order to send emails with gmail, your account needs to support [less secure accounts](https://support.google.com/accounts/answer/6010255?hl=en). From May 30, 2022, Google no longer supports this feature. Still you will be able to configure your gmail account to support email sending by generating an app password and replace `EMAIL_PASSWORD` with the generated password. Follow this guide on [how to generate an app password](https://wpmailsmtp.com/gmail-less-secure-apps/)
 
 ### Create dev and test databases
 Create two new Postgres databases one for dev and another for test and update the database url in the `.env.development` and `.env.test` files
